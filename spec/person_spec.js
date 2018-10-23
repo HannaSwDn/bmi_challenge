@@ -24,3 +24,4 @@ describe("Person", () => {
         expect(person.bmiMessage).to.equal('Overweight');
     });
 });
+
