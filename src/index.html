@@ -75,8 +75,8 @@
 
     const calculateBMI = () => {
         return new Promise(resolve => {
-            let w = parseFloat(document.getElementById('weight-in-kgs').value);
-            let h = parseFloat(document.getElementById('height-in-cm').value);
+            let w = parseFloat(document.getElementById(weightFormat).value);
+            let h = parseFloat(document.getElementById(heightFormat).value);
             
             let person = new Person({
                 weight: w,
