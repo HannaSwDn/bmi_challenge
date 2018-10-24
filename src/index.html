@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
     <title>BMI Calculator</title>
 </head>
 <body>
 
-    <!-- Here the user will select if they wanna use imperial or metric method -->
-    <!-- <div class="form-group row">
-        <div class="col-auto"> -->
+    <form id="calculate">
+
         <select class="form-control" id="my_select">
             <option value="metric">Metric System</option>
             <option value="imperial">Imperial System</option>
         </select>
-        <!-- </div>
-    </div> -->
-
-    <form id="calculate">
 
         <!-- Imperial method -->
         <div id="imperial-inputs">
@@ -51,6 +47,8 @@
     global.displayValueElement = document.querySelector('#display_value');
     global.displayMessageElement = document.querySelector('#display_message');
     global.methodSelector = document.querySelector('#my_select');
+    global.imperialInputs = document.querySelector('#imperial-inputs');
+    global.metricInputs = document.querySelector('#metric-inputs');
 
     document.addEventListener('DOMContentLoaded', () => {
         global.calculateForm.addEventListener('submit', event => {
@@ -85,6 +83,8 @@
         })
     };
 </script>
+
+<!-- External JavaScript files -->
 <script src="js/person.js"></script>
 <script src="js/calculator.js"></script>
 </body>
