@@ -11,6 +11,15 @@
 
     <form id="calculate">
 
+        <!-- Imperial method -->
+        <div id="imperial_inputs">
+            <input type="text" id="weight-in-pounds" placeholder="Weight">
+            <input type="text" id="height-in-inches" placeholder="Height">
+            
+            <button type="submit" value="Calculate"> Calculate </button>
+        </div>
+
+        <!-- Metric method -->
         <div id="metric-inputs">
             <input type="text" id="weight-in-kgs" placeholder="Weight">
             <input type="text" id="height-in-cm" placeholder="Height">
@@ -27,21 +36,16 @@
 <!-- JavaScript -->
 
 <script type="text/javascript">
-    // When the page has loaded, we create a set of global variables holding elements that we will use
-    // The attribute names speak for themselves   
-
     const global = {}
 
     global.calculateForm = document.querySelector('#calculate');
     global.displayValueElement = document.querySelector('#display_value');
     global.displayMessageElement = document.querySelector('#display_message');
 
-
     // Once the page has loaded, we add listeners to the select tag and the form
     // there's a lot ol events that we can listen for. 
     // here, we listen for when a value has changed and when a form has been submitted
     document.addEventListener('DOMContentLoaded', () => {
-        // Submit listener on the form
         global.calculateForm.addEventListener('submit', event => {
             // 'preventDefault' prevents the default action the browser makes on the form
             // we only want some java script to be executed, nothing else
@@ -51,8 +55,6 @@
             // mening we can wait for the result and execute more code once we get the result back. Hence the use of '.then()'
             calculateBMI()
                 .then(person => {
-                    // once we have the result of the calculation, it's time to modify
-                    // the document and display the results for the user to see. 
                     global.displayValueElement.innerHTML = `Your BMI is ${person.bmiValue}`;
                     global.displayMessageElement.innerHTML = `and you are ${person.bmiMessage}`;
                 })
@@ -61,7 +63,6 @@
 
     const calculateBMI = () => {
         return new Promise(resolve => {
-            // Here, for learning purposes, we will use 'document.getElementById()' to get hold of a element
             let w = parseFloat(document.getElementById('weight-in-kgs').value);
             let h = parseFloat(document.getElementById('height-in-cm').value);
             let person = new Person({
@@ -73,7 +74,6 @@
         })
     };
 </script>
-
 <script src="js/person.js"></script>
 <script src="js/calculator.js"></script>
 </body>
