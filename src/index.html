@@ -9,14 +9,22 @@
 </head>
 <body>
 
+    <!-- Here the user will select if they wanna use imperial or metric method -->
+    <div class="form-group row">
+        <div class="col-auto">
+            <select class="form-control" id="my_select">
+            <option value="metric">Metric System</option>
+            <option value="imperial">Imperial System</option>
+            </select>
+        </div>
+    </div>
+
     <form id="calculate">
 
         <!-- Imperial method -->
-        <div id="imperial_inputs">
-            <input type="text" id="weight-in-pounds" placeholder="Weight">
-            <input type="text" id="height-in-inches" placeholder="Height">
-            
-            <button type="submit" value="Calculate"> Calculate </button>
+        <div id="imperial-inputs">
+            <input type="text" id="weight-in-lbs" placeholder="Weight">
+            <input type="text" id="height-in-in" placeholder="Height">
         </div>
 
         <!-- Metric method -->
