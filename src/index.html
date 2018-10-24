@@ -46,6 +46,9 @@
 <script type="text/javascript">
     const global = {}
 
+    let weightFormat = method === 'metric' ? 'weight-in-kgs' : 'weight-in-lbs'
+    let heightFormat = method === 'metric' ? 'height-in-cm' : 'height-in-in'
+
     global.calculateForm = document.querySelector('#calculate');
     global.displayValueElement = document.querySelector('#display_value');
     global.displayMessageElement = document.querySelector('#display_message');
@@ -74,6 +77,7 @@
         return new Promise(resolve => {
             let w = parseFloat(document.getElementById('weight-in-kgs').value);
             let h = parseFloat(document.getElementById('height-in-cm').value);
+            
             let person = new Person({
                 weight: w,
                 height: h,
